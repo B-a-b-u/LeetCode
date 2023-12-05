@@ -57,16 +57,19 @@ class Formed_by_gpt():
 
         for word in words:
             word_anag = { w:word.count(w) for w in word}
-            
+            print(word_anag)
             valid = True
             for w,count in word_anag.items():
+                print(w,count)
                 try:
                     if(char_anag[w] < count):
                         valid = False
                         break
                 except KeyError:
+                    valid = False
                     break
             if valid:
+                print("good : ",word)
                 good_str_len += len(word)
 
         return good_str_len
